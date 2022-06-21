@@ -48,7 +48,6 @@ app.post('/movies', function(req, res, next){ mongoConnect(req, res, next)}, fun
       return res.status(400).send({message: "We've encountered an error during insertion"})
     } else {
       console.log(result)
-      req.db.close()
       return res.status(200).send({message: "Insertion is successful"})
     }
   })
@@ -74,7 +73,7 @@ app.delete('/movies/:title', function(req, res, next){ mongoConnect(req, res, ne
   })
 })
 
-app.get('/', function(req, res){ return res.status(200).send({message: "Enpoint hit!"})})
+app.get('/', function(req, res){ return res.status(200).send({message: "Enpoint hit! (Express)"})})
 
 app.listen(3000, function(){
   console.log('Node app is running on port 3000')
